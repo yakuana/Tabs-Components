@@ -25,16 +25,18 @@ class TabLink {
   select() {
     // Get all of the elements with the tabs-link class
     const links = document.querySelectorAll(".tabs-link");
-    console.log(links);
+    // console.log("all elements with tabs-link class", links);
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
-    // Array.from(links).forEach();
+    Array.from(links).forEach(link => link.classList.remove("tabs-link-selected"));
+    // console.log("links without 'tabs-link-selected' class", links);
 
     // Add a class named "tabs-link-selected" to this link
-    // this.element;
+    this.element.classList.add("tabs-link-selected");
+    // console.log("current link", this.element);
     
     // Call the select method on the item associated with this link
-
+    this.tabItem.select(); 
   }
 }
 
@@ -46,12 +48,16 @@ class TabItem {
 
   select() {
     // Select all ".tabs-item" elements from the DOM
-    // const items = ;
+    const items = document.querySelectorAll(".tabs-item");
+    // console.log("all elements with tabs-item class", items);
 
     // Remove the class "tabs-item-selected" from each element
-    
+    Array.from(items).forEach(item => item.classList.remove("tabs-item-selected"));
+    // console.log("items without 'tabs-item-selected' class", items);
+
     // Add a class named "tabs-item-selected" to this element
-    //this.element;
+    this.element.classList.add("tabs-item-selected");
+    // console.log("current item", this.element);
   }
 }
 
@@ -71,4 +77,4 @@ links = document.querySelectorAll(".tabs-link");
 // returns new instances of TabLink
 links.forEach((link) => {return new TabLink(link)})
 
-console.log(links); 
+// console.log(links); 
